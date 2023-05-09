@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="example-container" [formGroup]="formGroup">
+        <mat-form-field>
+            <mat-label>Product Name</mat-label>
+            <input matInput formControlName="productName" />
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Product Price</mat-label>
+            <input matInput formControlName="productPrice" />
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Product Quantity</mat-label>
+            <input matInput formControlName="productQuantity" />
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Product category</mat-label>
+            <mat-select formControlName="productCategory">
+                <mat-option value="Electronic">Electronic</mat-option>
+                <mat-option value="Fruit">Fruit</mat-option>
+                <mat-option value="Toy">Toy</mat-option>
+                <mat-option value="Fertilizer">Fertilizer</mat-option>
+                <mat-option value="Seeds">Seeds</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Product Status</mat-label>
+            <mat-select formControlName="status">
+                <mat-option value="1">Active</mat-option>
+                <mat-option value="0">Inactive</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="example-button-row">
+        <div class="btn-layer">
+            <button class="close-btn" mat-button color="warn" (click)="close()">
+                {{ "Close" }}
+            </button>
+            <button class="add-btn" mat-button color="primary" (click)="add()">
+                {{ "Add" }}
+            </button>
+        </div>
+    </div>
+</div>

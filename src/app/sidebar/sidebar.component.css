@@ -1,0 +1,35 @@
+.sidenav {
+  width: 200px;
+  height: 90vh;
+  background-color: blueviolet;
+  overflow-x: hidden;
+  padding-top: 60px;
+}
+.sidenav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: blueviolet;
+  color: white;
+}
+.sidenav li {
+  padding: 10px;
+ 
+}
+.sidenav i {
+  padding: 5px;
+  margin: 5px;
+}
+.sidenav li:last-child {
+  border-bottom: none;
+}
+.sidenav li a {
+  text-decoration: none;
+ color: white;
+  font-weight: bold;
+}
+.sidenav li{
+  text-decoration: none;
+  
+  font-weight: bold;
+}

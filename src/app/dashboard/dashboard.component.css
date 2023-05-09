@@ -1,0 +1,39 @@
+.conatiner {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+.upper-card-layer {
+  width: 100%;
+}
+.upper-card mat-card {
+  float: left;
+  width: 46%;
+  margin: 10px 0px 0px 20px;
+  height: 200px;
+  border: 1px solid green;
+}
+.last-card mat-card {
+  width: 93.5%;
+}
+mat-card {
+  text-align: center;
+  font-size: 25px;
+}
+.matcard-customer {
+  background-color: blueviolet;
+  color: aliceblue;
+}
+
+.matcard-customer:hover {
+  background-color: aliceblue;
+  color: blueviolet;
+}
+
+.customer-icon {
+  margin-top: 20px;
+  font-size: 45px;
+  min-width: 45px;
+  min-height: 45px;
+}

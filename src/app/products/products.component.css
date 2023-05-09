@@ -1,0 +1,35 @@
+table {
+  width: 100%;
+}
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+.add-btn button {
+  color: white;
+  background-color: blueviolet;
+}
+.add-customer {
+  display: flex;
+  width: 100%;
+}
+.add-btn {
+  width: 50%;
+  float: left;
+  display: flex;
+  color: blueviolet;
+}
+.add-btn button {
+  display: flex;
+  margin-left: 80%;
+}
+.example-card {
+  height: 100%;
+  flex-wrap: wrap;
+}
+.actn-btn {
+  display: flex;
+}
+.child-btn {
+  float: left;
+}

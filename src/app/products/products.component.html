@@ -1,0 +1,73 @@
+<mat-card class="example-card">
+  <div class="add-customer">
+    <div class="add-btn">
+    </div>
+    <div class="add-btn">
+      <button mat-button color="primary" (click)="addProduct()">Add Product</button>
+    </div>
+  </div>
+  <br>
+  <mat-form-field>
+    <mat-label>Search Product...</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Apple" #input />
+  </mat-form-field>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Product_id Column -->
+    <ng-container matColumnDef="_id">
+      <th mat-header-cell *matHeaderCellDef>Product_id</th>
+      <td mat-cell *matCellDef="let element">{{ element._id }}</td>
+    </ng-container>
+    <!-- productName Column -->
+    <ng-container matColumnDef="productName">
+      <th mat-header-cell *matHeaderCellDef>Product Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.productName }}</td>
+    </ng-container>
+    <!-- productPrice Column -->
+    <ng-container matColumnDef="productPrice">
+      <th mat-header-cell *matHeaderCellDef>Product Price</th>
+      <td mat-cell *matCellDef="let element">{{ element.productPrice }}</td>
+    </ng-container>
+    <!-- productQuantity Column -->
+    <ng-container matColumnDef="productQuantity">
+      <th mat-header-cell *matHeaderCellDef>Product Quantity</th>
+      <td mat-cell *matCellDef="let element">{{ element.productQuantity }}</td>
+    </ng-container>
+    <!-- productCategory Column -->
+    <ng-container matColumnDef="productCategory">
+      <th mat-header-cell *matHeaderCellDef>Product Category</th>
+      <td mat-cell *matCellDef="let element">{{ element.productCategory }}</td>
+    </ng-container>
+    <!-- action Column -->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>
+        Action
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div class="actn-btn">
+          <div class="child-btn">
+            <button matTooltip="Edit" mat-icon-button>
+              <mat-icon  color="primary">edit</mat-icon>
+            </button>
+          </div>
+          <div class="child-btn">
+            <button matTooltip="Delete" mat-icon-button>
+              <mat-icon color="warn">delete</mat-icon>
+            </button>
+          </div>
+        </div>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">
+        No data matching the filter "{{ input.value }}"
+      </td>
+    </tr>
+
+  </table>
+  <mat-paginator #paginator [pageSizeOptions]="[8, 15, 20]" showFirstLastButtons></mat-paginator>
+
+
+</mat-card>
