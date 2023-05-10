@@ -1,22 +1,28 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { CustomersService } from '../customers/customers.service';
 import { ProductsService } from '../products/products.service';
-import Chart from 'chart.js/auto'
+import Chart from 'chart.js/auto';
+import { SalesService } from '../sales/sales.service';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
 })
-export class DashboardComponent implements OnInit , AfterViewInit{
+export class DashboardComponent implements OnInit, AfterViewInit {
+  customerCounter: number = 0;
   customerCount: number = 0;
+
+  productCounter: number = 0;
   productCount: number = 0;
-  chart:any=[];
+
+  salesproductCount: number = 0;
+  salesCounter: number = 0;
+  chart: any = [];
   qty = [];
   productName = [];
   topProductList: any = [];
   chartOptions = {
-    
     title: {
       text: 'Top 3 product',
     },
@@ -31,8 +37,6 @@ export class DashboardComponent implements OnInit , AfterViewInit{
         indexLabel: '{y}',
         yValueFormatString: '#,### Quantity',
         dataPoints: [
-         
-          
           { label: 'Electronic', y: 360 },
           { label: 'Fruit', y: 430 },
           { label: 'Seeds', y: 500 },
@@ -40,44 +44,51 @@ export class DashboardComponent implements OnInit , AfterViewInit{
       },
     ],
   };
+  salesCounterNew: any;
 
   constructor(
     private customerService: CustomersService,
-    private productServices: ProductsService
+    private productServices: ProductsService,
+    private salesservices: SalesService
   ) {}
   ngAfterViewInit(): void {
     // throw new Error('Method not implemented.');
-    console.log(this.topProductList,'list>>>>>>>>>>>');
-    
+    // console.log(this.topProductList,'list>>>>>>>>>>>');
   }
 
   ngOnInit(): void {
     this.loadData();
+    this.createChart();
+    this.createPieChart();
   }
 
   loadData() {
     this.customerService.customerList().subscribe((res: any) => {
       let counter = setInterval(() => {
-        this.customerCount++;
-        if (this.customerCount === res.count) {
-          this.customerCount = res.count;
+        this.customerCount = res.count;
+        this.customerCounter++;
+        if (this.customerCounter === this.customerCount) {
+          this.customerCounter = this.customerCount;
           clearInterval(counter);
         }
       }, 50);
     });
     this.productServices.getProductList().subscribe((res: any) => {
+      this.productCount = res.count;
       let counter = setInterval(() => {
-        this.productCount++;
-        if (this.productCount === res.count) {
-          this.productCount = res.count;
+        this.productCounter++;
+        if (this.productCounter === this.productCount) {
+          this.productCounter = this.productCount;
           clearInterval(counter);
         }
       }, 50);
     });
     this.productServices.topProducts().subscribe((res: any) => {
       this.topProductList = res.allProducts;
-      this.qty = this.topProductList.map((qty:any)=> qty.productQuantity )
-      this.productName = this.topProductList.map((name:any)=> name.productName )
+      this.qty = this.topProductList.map((qty: any) => qty.productQuantity);
+      this.productName = this.topProductList.map(
+        (name: any) => name.productName
+      );
       this.chart = new Chart('canvas', {
         type: 'bar',
         data: {
@@ -86,13 +97,82 @@ export class DashboardComponent implements OnInit , AfterViewInit{
             {
               data: this.qty,
               borderColor: 'white',
-              label: 'Product Quantity',
+              label: ' Top Product Quantity',
               backgroundColor: 'blueviolet',
               borderWidth: 3,
             },
           ],
         },
       });
+    });
+
+    this.salesservices.getSalesList().subscribe((res: any) => {
+      res.allSales.forEach((productQuantity: any) => {
+        this.salesproductCount += productQuantity.productQuantity;
+      });
+      this.salesCounterNew = this.salesproductCount;
+      let counter = setInterval(() => {
+        this.salesCounter++;
+        if (this.salesCounter === this.salesCounterNew) {
+          this.salesCounter = this.salesCounterNew;
+          clearInterval(counter);
+        }
+      }, 50);
+    });
+  }
+  createChart() {
+    this.chart = new Chart('MyChart', {
+      type: 'line', //this denotes tha type of chart
+
+      data: {
+        // values on X-Axis
+        labels: [
+          '2022-05-10',
+          '2022-05-11',
+          '2022-05-12',
+          '2022-05-13',
+          '2022-05-14',
+          '2022-05-15',
+          '2022-05-16',
+          '2022-05-17',
+        ],
+        datasets: [
+          {
+            label: 'Sales',
+            data: ['467', '576', '572', '79', '92', '574', '573', '576'],
+            backgroundColor: 'blueviolet',
+          },
+          {
+            label: 'Profit',
+            data: ['542', '542', '536', '327', '17', '0.00', '538', '541'],
+            backgroundColor: 'limegreen',
+          },
+        ],
+      },
+      options: {
+        aspectRatio: 2.5,
+      },
+    });
+  }
+  createPieChart() {
+    this.chart = new Chart('MyPieChart', {
+      type: 'pie', //this denotes tha type of chart
+
+      data: {
+        // values on X-Axis
+        labels: ['Product A', 'Product B', 'Product C', 'Product D'],
+        datasets: [
+          {
+            label: 'total product sell',
+            data: [20, 15, 32, 30],
+            backgroundColor: ['#23db36', 'blueviolet', 'yellow', 'orange'],
+            hoverOffset: 4,
+          },
+        ],
+      },
+      options: {
+        aspectRatio: 2.5,
+      },
     });
   }
 }

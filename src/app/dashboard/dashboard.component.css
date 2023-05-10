@@ -7,15 +7,24 @@
 .upper-card-layer {
   width: 100%;
 }
+.middle-card-layer {
+  width: 100%;
+}
 .upper-card mat-card {
   float: left;
-  width: 46%;
+  width: 30%;
   margin: 10px 0px 0px 20px;
-  height: 200px;
-  border: 1px solid green;
+  height: 150px;
+}
+.middle-card mat-card {
+  float: left;
+  width: 45.8%;
+  margin: 10px 0px 0px 20px;
+  height: 250px;
 }
 .last-card mat-card {
-  width: 93.5%;
+  width: 93%;
+  height: 20%;
 }
 mat-card {
   text-align: center;

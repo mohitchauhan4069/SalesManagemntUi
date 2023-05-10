@@ -8,7 +8,9 @@ import { ProductsService } from '../products.service';
   styleUrls: ['./add-product.component.css'],
 })
 export class AddProductComponent implements OnInit {
+  mode!: string;
   formGroup!: FormGroup;
+
   constructor(
     private dialog: MatDialog,
     private dialogRef: MatDialogRef<AddProductComponent>,
@@ -28,33 +30,25 @@ export class AddProductComponent implements OnInit {
 
   add() {
     const makePayload = {
-      productName:String(this.formGroup.get('productName')?.value),
-      productPrice:Number(this.formGroup.get('productPrice')?.value),
+      productName: String(this.formGroup.get('productName')?.value),
+      productPrice: Number(this.formGroup.get('productPrice')?.value),
       productQuantity: Number(this.formGroup.get('productQuantity')?.value),
       productCategory: String(this.formGroup.get('productCategory')?.value),
       active: Boolean(this.formGroup.get('status')?.value),
     };
     if (!this.formGroup.valid) return;
     else {
-      this.productServices
-        .addProduct(makePayload)
-        .subscribe({
-          next: (res) => {
-            console.log(res);
-          },
-          error: (err) => {
-            console.log(err);
-          },
-          complete: () => {
-            console.log('completed');
-          },
-        });
-        
-          this.dialogRef.close(true);
-       
+      this.productServices.addProduct(makePayload).subscribe({
+        next: (res) => {},
+        error: (err) => {},
+        complete: () => {},
+      });
+
+      this.dialogRef.close(true);
     }
   }
   close() {
     this.dialogRef.close(false);
   }
 }
+ 

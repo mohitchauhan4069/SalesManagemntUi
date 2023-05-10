@@ -1,35 +1,32 @@
 @import url(https://fonts.googleapis.com/css?family=Exo+2:200i);
-
 :root {
   font-size: 10px;
 
   --neon-text-color: #f40;
   --neon-border-color: #08f;
 }
-.navbar {
-  /* background-color: white; */
+.container img{
+  height:50px;
+  width: 70px;
 }
-
 p {
   font-size: 20px;
   font-weight: 100;
   color: blueviolet;
   margin: 5px;
-  padding: 0.5rem 2rem 0.5rem;
+  padding: 0.3rem 1rem 0.3rem;
   border: 1px solid blueviolet;
   border-radius: 2rem;
   text-transform: uppercase;
   animation: flicker 1.5s infinite alternate;
   font-family: Georgia, "Times New Roman", Times, serif;
 }
-
 p:hover {
   color: white;
   border: 1px solid white;
   background-color: blueviolet;
 
 }
-
 p::-moz-selection {
   background-color: var(--neon-border-color);
   color: var(--neon-text-color);

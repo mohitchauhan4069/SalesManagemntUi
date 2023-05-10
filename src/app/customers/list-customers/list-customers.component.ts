@@ -10,7 +10,6 @@ import { MatDialog } from '@angular/material/dialog';
   templateUrl: './list-customers.component.html',
   styleUrls: ['./list-customers.component.css'],
 })
-
 export class ListCustomersComponent implements OnInit {
   @ViewChild(MatPaginator, { static: false }) set matPaginator(
     mp: MatPaginator
@@ -19,7 +18,10 @@ export class ListCustomersComponent implements OnInit {
       this.dataSource.paginator = mp;
     }
   }
-  constructor(private customerServices: CustomersService, private dialog: MatDialog) {}
+  constructor(
+    private customerServices: CustomersService,
+    private dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.loadData();
@@ -35,8 +37,11 @@ export class ListCustomersComponent implements OnInit {
       this.dataSource.data = response.customerDetails;
     });
   }
-  addCustomer(){
-    const dialogref=this.dialog.open(AddCustomersComponent);
+  editCustomer() {
+    const dialogRef = this.dialog.open(AddCustomersComponent);
+  }
+  addCustomer() {
+    const dialogref = this.dialog.open(AddCustomersComponent);
   }
   displayedColumns: string[] = [
     '_id',
@@ -45,7 +50,7 @@ export class ListCustomersComponent implements OnInit {
     'dob',
     'phoneNumber',
     'emailAddress',
-    'action'
+    'action',
   ];
   dataSource: any = new MatTableDataSource<any>([]);
 }

@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ProductsService } from './products.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { AddProductComponent } from './add-product/add-product.component';
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 @Component({
   selector: 'app-products',
@@ -31,6 +31,12 @@ export class ProductsComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
   addProduct() {
+    const dialogRef = this.dialog.open(AddProductComponent);
+    dialogRef.afterClosed().subscribe((isSucces) => {
+      if (isSucces) this.loadData();
+    });
+  }
+  editProduct() {
     const dialogRef = this.dialog.open(AddProductComponent);
     dialogRef.afterClosed().subscribe((isSucces) => {
       if (isSucces) this.loadData();
