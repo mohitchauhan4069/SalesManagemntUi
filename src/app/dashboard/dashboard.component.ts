@@ -160,7 +160,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
       data: {
         // values on X-Axis
-        labels: ['Product A', 'Product B', 'Product C', 'Product D'],
+        labels: ['Celling Fan', 'Television', 'Kiwi', 'Graphes'],
         datasets: [
           {
             label: 'total product sell',

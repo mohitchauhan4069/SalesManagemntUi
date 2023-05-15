@@ -46,7 +46,8 @@ export class AddCustomersComponent implements OnInit {
         console.log(err);
       },
     });
-    this.router.navigate(['/customers']);
+    this.dialogRef.close(false);
+   
   }
   close() {
     this.dialogRef.close(false);
