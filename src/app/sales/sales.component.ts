@@ -3,6 +3,7 @@ import { SalesService } from './sales.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
+import { AddSalesComponent } from './add-sales/add-sales.component';
 @Component({
   selector: 'app-sales',
   templateUrl: './sales.component.html',
@@ -26,7 +27,12 @@ export class SalesComponent implements OnInit {
       this.dataSource.data = res.allSales;
     });
   }
-  addSales() {}
+  addSales() {
+    const dialogRef = this.dialog.open(AddSalesComponent);
+    dialogRef.afterClosed().subscribe((isSucces) => {
+      if (isSucces) this.loadData();
+    });
+  }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
