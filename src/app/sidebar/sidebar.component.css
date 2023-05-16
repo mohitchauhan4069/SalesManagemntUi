@@ -1,35 +1,31 @@
-
 .sidenav {
-  /* font-family:Georgia, 'Times New Roman', Times, serif; */
   width: 200px;
   height: 90vh;
   background-color: blueviolet;
   overflow-x: hidden;
   padding-top: 60px;
 }
-.sidenav ul {
+.sidenav ul li {
+  text-decoration: none;
   list-style: none;
-  padding: 0;
-  margin: 0;
-  background-color: blueviolet;
-  color: white;
+  padding: 8px;
+  margin: 1px;
 }
-.sidenav li {
-  padding: 10px;
-}
-.sidenav i {
+.sidenav ul li i {
   padding: 5px;
   margin: 5px;
 }
-.sidenav li:last-child {
-  border-bottom: none;
-}
 .sidenav li a {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
   text-decoration: none;
   color: white;
-  font-weight: bold;
 }
-.sidenav li {
-  text-decoration: none;
-  font-weight: bold;
+.sidenav li p {
+  margin: 0;
+  padding: 5px;
+}
+.sidenav li mat-icon {
+  margin: 5px;
 }

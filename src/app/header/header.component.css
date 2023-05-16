@@ -1,8 +1,8 @@
-.container img{
-  height:50px;
+.container img {
+  height: 50px;
   width: 60px;
 }
-.navbar{
+.navbar {
   margin: 0;
   padding: 0;
 }
@@ -22,5 +22,4 @@ p:hover {
   color: white;
   border: 1px solid white;
   background-color: blueviolet;
-
 }

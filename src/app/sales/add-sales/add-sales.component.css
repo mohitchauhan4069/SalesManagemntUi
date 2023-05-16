@@ -1,39 +1,38 @@
 .container {
-    margin: 0;
-    padding: 0;
-    height: 400px;
-    width: 500px;
-  }
-  .example-container {
-    margin: 0;
-    padding: 0;
-  }
-  .example-container mat-form-field {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .example-button-row {
-    width: 100%;
-  }
-  
-  .example-button-row .mat-mdc-button-base {
-    margin: 8px 8px 8px 0;
-  }
-  .btn-layer button {
-    margin: auto;
-    width: 45%;
-    float: left;
-    padding: 6px;
-    margin: 10px;
-  }
-  .close-btn {
-    background-color: orangered;
-    color: white;
-  }
-  .add-btn {
-    background-color: blueviolet;
-    color: white;
-  }
-  
+  margin: 0;
+  padding: 0;
+  height: 400px;
+  width: 500px;
+}
+.example-container {
+  margin: 0;
+  padding: 0;
+}
+.example-container mat-form-field {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.example-button-row {
+  width: 100%;
+}
+
+.example-button-row .mat-mdc-button-base {
+  margin: 8px 8px 8px 0;
+}
+.btn-layer button {
+  margin: auto;
+  width: 45%;
+  float: left;
+  padding: 6px;
+  margin: 10px;
+}
+.close-btn {
+  background-color: orangered;
+  color: white;
+}
+.add-btn {
+  background-color: blueviolet;
+  color: white;
+}

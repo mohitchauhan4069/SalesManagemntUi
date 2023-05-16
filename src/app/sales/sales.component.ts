@@ -18,7 +18,6 @@ export class SalesComponent implements OnInit {
     }
   }
   constructor(private salesServices: SalesService, private dialog: MatDialog) {}
-
   ngOnInit(): void {
     this.loadData();
   }
@@ -39,9 +38,7 @@ export class SalesComponent implements OnInit {
   }
   displayedColumns: string[] = [
     'cust_Id',
-    // 'cust_Name',
     'prod_Id',
-    // 'prod_Name',
     'productQuantity',
     'totalAmount',
     'currentPayment',

@@ -12,10 +12,8 @@ import { SalesService } from '../sales/sales.service';
 export class DashboardComponent implements OnInit, AfterViewInit {
   customerCounter: number = 0;
   customerCount: number = 0;
-
   productCounter: number = 0;
   productCount: number = 0;
-
   salesproductCount: number = 0;
   salesCounter: number = 0;
   chart: any = [];
@@ -51,10 +49,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     private productServices: ProductsService,
     private salesservices: SalesService
   ) {}
-  ngAfterViewInit(): void {
-    // throw new Error('Method not implemented.');
-    // console.log(this.topProductList,'list>>>>>>>>>>>');
-  }
+  ngAfterViewInit(): void {}
 
   ngOnInit(): void {
     this.loadData();
@@ -117,15 +112,14 @@ export class DashboardComponent implements OnInit, AfterViewInit {
           this.salesCounter = this.salesCounterNew;
           clearInterval(counter);
         }
-      }, 50);
+      }, 1);
     });
   }
   createChart() {
     this.chart = new Chart('MyChart', {
-      type: 'line', //this denotes tha type of chart
+      type: 'line',
 
       data: {
-        // values on X-Axis
         labels: [
           '2022-05-10',
           '2022-05-11',
@@ -156,10 +150,8 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   }
   createPieChart() {
     this.chart = new Chart('MyPieChart', {
-      type: 'pie', //this denotes tha type of chart
-
+      type: 'pie',
       data: {
-        // values on X-Axis
         labels: ['Celling Fan', 'Television', 'Kiwi', 'Graphes'],
         datasets: [
           {

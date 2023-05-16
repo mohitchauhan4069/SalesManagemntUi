@@ -18,7 +18,10 @@
           <mat-icon class="customer-icon" mat-list-icon>
             rocket_launch
           </mat-icon>
-          <p mat-line>{{ salesCounter }} <span *ngIf="salesCounter!=salesCounterNew">+</span></p>
+          <p mat-line>
+            {{ salesCounter }}
+            <span *ngIf="salesCounter != salesCounterNew">+</span>
+          </p>
           <p>Sell Product</p>
         </a>
       </mat-card>
@@ -31,43 +34,37 @@
             {{ productCounter
             }}<span *ngIf="productCount != productCounter">+</span>
           </p>
-          <p>Total Products</p>
+          <p>Products Category</p>
         </a>
       </mat-card>
     </div>
   </div>
-
   <div class="middle-card-layer">
     <div class="middle-card">
       <mat-card>
         <div>
           <canvas style="width: 100%; height: 160px" id="MyChart">{{
             chart
-            }}</canvas>
+          }}</canvas>
         </div>
       </mat-card>
     </div>
     <div class="middle-card">
       <mat-card>
         <div>
-          <!-- <canvas id="canvas" style="width: 100%; height: 230px">{{
-            chart
-            }}</canvas> -->
-            <div class="chart-container">
-              <canvas  id="MyPieChart" >{{ chart }}</canvas>
-        </div>
+          <div class="chart-container">
+            <canvas id="MyPieChart">{{ chart }}</canvas>
+          </div>
         </div>
       </mat-card>
     </div>
   </div>
-
   <div class="last-card-layer">
     <div class="upper-card last-card">
       <mat-card>
         <canvas id="canvas" style="width: 100%; height: 180px">{{
           chart
-          }}</canvas>
-        <!-- <canvasjs-chart [options]="chartOptions" [styles]="{ width: '100%', height: '150px' }"></canvasjs-chart> -->
+        }}</canvas>
       </mat-card>
     </div>
   </div>
